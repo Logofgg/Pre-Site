@@ -205,7 +205,7 @@ header .logo-pequena img{
 }
 
 .topo-fundo{
-    background:url("images/cristo4.jpeg") no-repeat center top;
+    background:url("images/cristo44.jpeg") no-repeat center top;
     background-size:cover;
     height:clamp(400px,64vmin,700px);
     min-height:410px;
@@ -292,6 +292,18 @@ header .logo-pequena img{
     align-items: flex-start;
 }
 
+.servicos-container2{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10vw;
+}
+
+.titulo-sessao {
+    display: flex;
+    gap: 10vw;
+    align-items: flex-start;
+}
+
 .lista-servicos li {
     font-size: 20px;
     margin-bottom: 12px;
@@ -299,7 +311,7 @@ header .logo-pequena img{
 
 /* Formulário */
 .form-contato {
-    max-width: 600px;
+    max-width: 900px;
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -324,7 +336,7 @@ header .logo-pequena img{
 }
 
 .contato {
-    font-size: 4vmin;
+    font-size: 3vmin;
     flex: 1;
 
 }
@@ -441,6 +453,14 @@ header .logo-pequena img{
 @media (max-width:768px){
 
 .servicos-container{
+    flex-direction: column;
+}
+
+}
+
+@media (max-width:768px){
+
+.servicos-container2{
     flex-direction: column;
 }
 
