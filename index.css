@@ -295,7 +295,7 @@ header .logo-pequena img{
 .servicos-container2{
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 10vw; 
+    gap: 10vw;
 }
 
 .titulo-sessao {
