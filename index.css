@@ -205,7 +205,7 @@ header .logo-pequena img{
 }
 
 .topo-fundo{
-    background:url("images/cristo44.jpeg") no-repeat center top;
+    background:url("images/cristo4.jpeg") no-repeat center top;
     background-size:cover;
     height:clamp(400px,64vmin,700px);
     min-height:410px;
