@@ -36,7 +36,7 @@ main::before {
     position: fixed;
     inset: 0;
     background: url("images/penac.svg") repeat center;
-    background-size: 80%;
+    background-size: 155vmin;
     opacity: 0.2;
     pointer-events: none;
     z-index: -1; 
@@ -165,7 +165,7 @@ header .logo-pequena img{
     background: white;
     box-shadow: 0 4px 10px #0003;
     padding: 40px 0;
-    transition: top 0.4s ease;
+    transition: 0.4s ease;
     z-index: 9999;
 }
 
@@ -205,10 +205,10 @@ header .logo-pequena img{
 }
 
 .topo-fundo{
-    background:url("images/tt.gif") no-repeat center top;
+    background:url("images/cristo4.jpeg") no-repeat center top;
     background-size:cover;
-    height:clamp(400px,64vh,700px);
-    min-height:500px;
+    height:clamp(400px,64vmin,700px);
+    min-height:410px;
     overflow:hidden;
 }
 
@@ -240,11 +240,10 @@ header .logo-pequena img{
 .linha2 {
   width: 100vw;        
   max-width: 5000px;
-  height: 200px;           
+  height: 21vmin;           
   background: #2a0e0e;
   border: none;
   position: relative;
-  width: 100vw;
   display: flex;                
   justify-content: center;      
   align-items: center;
@@ -260,8 +259,8 @@ header .logo-pequena img{
 
 /* Seções internas */
 .secao-pagina {
-    padding-top: 90px;
-    padding-bottom: 540px;
+    padding-top: 85px;
+    padding-bottom: 110px;
     color: white;
     padding-left: 90px;
     padding-right: 90px;
@@ -271,6 +270,7 @@ header .logo-pequena img{
     font-size: 42px;
     margin-bottom: 25px;
     color: #fcb143;
+    margin-top: 2vw;
 }
 
 .secao-pagina p {
@@ -281,9 +281,15 @@ header .logo-pequena img{
 
 /* Lista de serviços */
 .lista-servicos {
-    list-style: none;
+    list-style: disc;
     padding: 0;
     margin-top: 20px;
+}
+
+.servicos-container{
+    display: flex;
+    gap: 30vw;
+    align-items: flex-start;
 }
 
 .lista-servicos li {
@@ -317,9 +323,125 @@ header .logo-pequena img{
     border-radius: 6px;
 }
 
+.contato {
+    font-size: 4vmin;
+    flex: 1;
+
+}
+
+#sublinhado{
+    text-decoration: underline;
+    font-size: 3vmin;
+}
+
+#sublinhado2{
+    text-decoration: underline;
+    font-size: 4svmin;
+}
+
 .form-contato button:hover {
     opacity: 0.9;
 }
 
+@media (max-width:768px){
 
+.menu-drop{
+    top:0;
+    left:auto;
+    right:0;
+    width:70%;
+    height:100vh;
 
+    transform:translateX(100%); /* começa fora da tela (direita) */
+    transition:transform 0.4s ease;
+    padding-top:80px;
+}
+
+/* quando abre */
+.menu-drop.open{
+    transform:translateX(0);
+}
+
+/* conteúdo em coluna */
+.menu-drop-content{
+    flex-direction:column;
+    gap:30px;
+}
+
+}
+
+@media (max-width:768px){
+
+.secao-pagina{
+    padding-left:30px;
+    padding-right:30px;
+    padding-bottom: 70px;
+}
+
+}
+
+@media (max-width:768px){
+    body::before{
+        background-size:110vmin;
+    }
+}
+
+@media (max-width:768px){
+    .linha2{
+        height: 31vmin;
+    }
+}
+
+@media (max-width:768px){
+
+.img-topo-site h2{
+    font-size: 26px;
+    padding-inline: 20px;
+}
+
+.img-topo-site h3{
+    font-size: 16px;
+    padding-inline: 20px;
+}
+
+.secao-pagina h2{
+    font-size: 26px;
+    padding-top: 6vw;
+}
+
+.secao-pagina p{
+    font-size: 15px;
+}
+
+.lista-servicos li{
+    font-size: 16px;
+}
+
+}
+
+@media (max-width:768px){
+    .topo-fundo{
+        height:clamp(100px,20vmin,300px);
+        
+    }
+}
+
+@media (max-width:768px){
+    #sublinhado{
+        font-size: 5vmin;
+    }
+}
+
+@media (max-width:768px){
+    #sublinhado2{
+        font-size: 6vmin;
+    }
+}
+
+@media (max-width:768px){
+
+.servicos-container{
+    flex-direction: column;
+}
+
+}
