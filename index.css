@@ -294,7 +294,7 @@ header .logo-pequena img{
 
 .servicos-container2{
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 10vw;
 }
 
@@ -461,7 +461,7 @@ header .logo-pequena img{
 @media (max-width:768px){
 
 .servicos-container2{
-    flex-direction: column;
+    grid-template-columns: 1fr;
 }
 
 }
