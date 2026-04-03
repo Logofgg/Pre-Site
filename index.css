@@ -454,6 +454,7 @@ header .logo-pequena img{
 
 .servicos-container{
     flex-direction: column;
+    padding: 10vmin;
 }
 
 }
