@@ -292,7 +292,6 @@ h1 {
     height: 100vmin; 
     display: flex;
     align-items: center; 
-    overflow:hidden;
 }
 
 .img-topo-site {
