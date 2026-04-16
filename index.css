@@ -290,6 +290,7 @@ h1 {
                 url("images/cristo4.jpeg") no-repeat center center;
     background-size: cover;
     display: flex; 
+    height: 100vh
 }
 
 .img-topo-site {
