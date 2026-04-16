@@ -7,100 +7,102 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Arizonia&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="index.css">
     <link rel="icon" href="images/log.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
     <title>Penna Lex</title>
 </head>
 
 <body>
     <header>
-        <!-- MENU DESLIZANTE -->
-        <div class="menu-drop" id="menuDrop">
-            <div class="menu-drop-content">
+    <div class="menu-topo-fixo">
+        <!-- 🔍 BARRA DE BUSCA DO TOPO -->
+<div class="barra-busca-topo" id="barraBuscaTopo">
+    <input type="text" placeholder="Pesquisar...">
+</div>
+    <div class="interface-topo">
         
-                <div class="col">
-                    <h3>EMPRESA</h3>
-                    <a href="#quem-somos">Quem Somos</a>
-                </div>
-
-                <div class="col">
-                    <h3>EXPERTISES</h3>
-                    <a href="#servicos">Serviços</a>
-                </div>
-
-                <div class="col">
-                    <h3>CONTATO</h3>
-                    <a href="#contato">Fale Conosco</a>
-                </div>
-
-            </div>
+        <div class="logo-topo-fixo">
+            <a href="https://logofgg.github.io/Pre-Site/">
+                <img src="images/logo-topo.svg" alt="Logo Penna Lex">
+            </a>
         </div>
 
-        <div class="interface">
-            <div class="botao-whatsapp-expand">
-                <a href="https://wa.me/55SEUNUMERO" target="_blank">
-                    <i class="fa-brands fa-whatsapp"></i>
-                    <span>Enviar mensagem</span>
-                </a>
+        <div class="conteudo-direita">
+            <div class="links-redes">
+                <a href="https://www.instagram.com/pennalexjuridico/" target="_blank">INSTAGRAM</a>
+                <span class="divisor">|</span>
+                <a href="https://www.facebook.com/pljuridico/" target="_blank">FACEBOOK</a>
+                <span class="divisor">|</span>
+                <a href="https://wa.me/55SEUNUMERO" target="_blank">WHATSAPP</a>
             </div>
-
-            <div class="topo-site">
-                <div class="logo-e-titulo">
-                    <a href="https://logofgg.github.io/Pre-Site/">
-                        <img src="images/log.svg" alt="Logo Pequena">
-                    </a>
-                    <a href="https://logofgg.github.io/Pre-Site/">
-                        <h1>PennaLex</h1>
-                    </a>
-                </div>
-
-                <div class="menu-icon">
+            
+            <div class="icones-direita">
+                <a href="#" class="icone-busca"><i class="fa-solid fa-magnifying-glass"></i></a>
+                <div class="menu-icon-topo">
                    <i class="fa-solid fa-bars"></i>
                 </div>
             </div>
-
         </div>
+
+    </div>
+</div>
+
+    <div class="menu-drop" id="menuDrop">
+        <div class="fechar-menu-x" id="btnFecharMenu">
+    <i class="fa-solid fa-xmark"></i>
+</div>
         
-    </header>
-    <script>
-const menuIcon = document.querySelector(".menu-icon");
-const menuDrop = document.getElementById("menuDrop");
+        <div class="menu-drop-content">
+            <div class="col">
+                <h3>EMPRESA</h3>
+                <a href="#us">Quem Somos</a>
+            </div>
+            <div class="col">
+                <h3>EXPERTISES</h3>
+                <a href="#servicos">Serviços</a>
+            </div>
+            <div class="col">
+                <h3>REDES</h3>
+                <a href="#redes">Noticias</a>
+            </div>
+            <div class="col">
+                <h3>CONTATO</h3>
+                <a href="#contato">Fale Conosco</a>
+            </div>
+        </div>
+    </div>
 
-let aberto = false;
+    <div class="interface">
+        <div class="botao-whatsapp-expand">
+            <a href="https://wa.me/55SEUNUMERO" target="_blank">
+                <i class="fa-brands fa-whatsapp"></i>
+                <span>Enviar mensagem</span>
+            </a>
+        </div>
 
-menuIcon.addEventListener("click", (e) => {
-    e.stopPropagation();
-    toggleMenu();
-});
+        <div class="topo-site topo-escondido">
+            <div class="logo-e-titulo">
+                <a href="https://logofgg.github.io/Pre-Site/">
+                    <img src="images/log.svg" alt="Logo Pequena">
+                </a>
+                <a href="https://logofgg.github.io/Pre-Site/">
+                    <h1>PennaLex</h1>
+                </a>
+            </div>
 
-function toggleMenu() {
-    aberto = !aberto;
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Pesquisar...">
+                <i class="fa fa-search"></i>
+            </div>
 
-    if (aberto) {
-        menuDrop.classList.add("open");
-        menuIcon.innerHTML = '<i class="fa-solid fa-xmark"></i>';
-    } else {
-        fecharMenu();
-    }
-}
-
-function fecharMenu() {
-    aberto = false;
-    menuDrop.classList.remove("open");
-    menuIcon.innerHTML = '<i class="fa-solid fa-bars"></i>';
-}
-
-/* 👇 FECHA AO CLICAR EM QUALQUER LINK DO MENU */
-menuDrop.addEventListener("click", (e) => {
-    if (e.target.tagName === "A") {
-        fecharMenu();
-    }
-});
-</script>
-
+            <div class="menu-icon">
+               <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+    </div>
+</header>
 
     <main>
         <section class="topo-fundo">
@@ -109,170 +111,311 @@ menuDrop.addEventListener("click", (e) => {
                     <div class="img-topo-site">
                         <h2>Soluções Jurídicas Modernas com Exelencia e Inovação</h2>
                         <h3>O escritório de advocacia PennaLex atua em diversas áreas do direito, atendendo com agilidade, qualidade e foco nos resultados almejados pelos clientes.</h3>
-                    </div><!--img-topo-site-->
-                </div><!--flex-->
-            </div><!--interface-->
-        </section><!--topo-do-site-->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="us" class="quem-somos">
+
         <div class="linha-meio">
-                <div class="linha2">
-                    <a href="https://www.instagram.com/pennalexjuridico/" target="_blank" class="rede-social" rel="noopener noreferrer">
-                        <i class="fab fa-instagram"></i>
-                        <span>Instagram</span>
-                    </a>
+            <div class="linha2">
+                <div class="interface">
+                <h2>Quem Somos</h2>
+                <p>Com 22 anos de atuação no mercado jurídico, nosso escritório de advocacia construiu
+uma trajetória marcada pela seriedade, ética e compromisso com a defesa dos interesses
+de nossos clientes. Ao longo dessas mais de duas décadas, desenvolvemos uma atuação
+sólida e responsável, baseada no profundo conhecimento do Direito e na busca constante
+por soluções jurídicas seguras e eficazes.</p>
+                <br>
+                <p>Nossa equipe é formada por profissionais qualificados e dedicados, que atuam de maneira
+estratégica e personalizada em cada caso. Acreditamos que cada cliente possui
+necessidades únicas, e por isso trabalhamos com atenção, transparência e proximidade,
+garantindo um atendimento humanizado e focado em resultados.</p>
+                <br>
+                <p>Ao longo dos anos, consolidamos nossa reputação por meio da confiança de nossos
+clientes e pela qualidade dos serviços prestados. Nosso compromisso é continuar
+oferecendo assessoria jurídica de excelência, sempre pautada pela ética, responsabilidade
+e atualização constante diante das transformações do cenário jurídico.</p>
+                <br>
+                <p>Mais do que prestar serviços jurídicos, buscamos construir relações duradouras baseadas na confiança, na credibilidade e no respeito.</p>
+            </div>
+            </div>
+        </div>
+        </section>
 
-                    <a href="https://www.facebook.com/pljuridico/" target="_blank" class="rede-social" rel="noopener noreferrer">
-                        <i class="fab fa-facebook"></i>
-                        <span>Facebook</span>
-                    </a>
 
+        <section id="servicos" class="secao-pagina fundo-escuro">
+            <div class="interface">
+                <h2>Serviços</h2>
+                <div class="servicos-container">
+                    <ul class="lista-servicos">
+                        <h3 id="sublinhado">Áreas de atuação</h3>
+                        <br>
+                        <li>Direito Civil</li>
+                        <li>Direito Trabalhista</li>
+                        <li>Direito Empresarial</li>
+                        <li>Direito do Consumidor</li>
+                        <li>Direito de Família</li>
+                        <li>Direito Previdenciário</li>
+                        <li>Entre outros ramos do Direito</li>
+                    </ul>
+                    <ul class="lista-servicos">
+                        <h3 id="sublinhado">Principais Serviços</h3>
+                        <br>
+                        <li>Audiência</li>
+                        <li>Despacho com Juiz</li>
+                        <li>Elaboração de peças processuais e contratos</li>
+                        <li>Guia, Certidões e Alvarás</li>
+                        <li>Diligências Cartorárias e Administrativas</li>
+                        <li>Outros Serviços Relacionados à Advocacia Judicial ou Extrajudicial</li>
+                        <li>Entre outros ramos do Direito</li>
+                    </ul>
                 </div>
             </div>
-        <section id="quem-somos" class="secao-pagina">
-        <div class="interface">
+        </section>
 
-            <br>
+        <section id="redes" class="fale-conosco">
 
-            <h2>Quem Somos</h2>
-
-            <p>
-                Com 22 anos de atuação no mercado jurídico, nosso escritório de advocacia construiu uma trajetória marcada pela seriedade, 
-            ética e compromisso com a defesa dos interesses de nossos clientes. Ao longo dessas mais de duas décadas, desenvolvemos uma 
-            atuação sólida e responsável, baseada no profundo conhecimento do Direito e na busca constante por soluções jurídicas seguras e eficazes.
-            </p>
-
-            <br>
-
-            <p>
-                Nossa equipe é formada por profissionais qualificados e dedicados, que atuam de maneira estratégica e personalizada em cada caso. 
-            Acreditamos que cada cliente possui necessidades únicas, e por isso trabalhamos com atenção, transparência e proximidade, garantindo 
-            um atendimento humanizado e focado em resultados.
-            </p>
-
-            <br>
-
-            <p>
-                Ao longo dos anos, consolidamos nossa reputação por meio da confiança de nossos clientes e pela qualidade dos serviços prestados. 
-            Nosso compromisso é continuar oferecendo assessoria jurídica de excelência, sempre pautada pela ética, responsabilidade e atualização 
-            constante diante das transformações do cenário jurídico.
-            </p>
-
-            <br>
-        
-            <p>
-                Mais do que prestar serviços jurídicos, buscamos construir relações duradouras baseadas na confiança, na credibilidade e no respeito.
-            </p>
-        </div>
-    </section>
         <div class="linha-meio">
-                <div class="linha2">
-                    <a href="https://www.instagram.com/pennalexjuridico/" target="_blank" class="rede-social" rel="noopener noreferrer">
-                        <i class="fab fa-instagram"></i>
-                        <span>Instagram</span>
-                    </a>
+            <div class="linha2">
+                <div class="interface">
+                <div class="instagram-wrapper">
+            <div class="insta-info">
+                <h2>Nos siga nas redes sociais.</h2>
+                <p>Nos siga no Instagram e fique por dentro de notícias, curiosidades e de seus direitos como cidadão no meio jurídico.</p>
+                <a href="https://www.instagram.com/pennalexjuridico/" target="_blank" class="insta-user">
+                    <i class="fab fa-instagram"></i> @pennalexjuridico
+                </a>
+                <a href="https://www.facebook.com/pljuridico/" target="_blank" class="insta-user">
+                    <i class="fab fa-facebook"></i> @pljuridico
+                </a>
+            </div>
 
-                    <a href="https://www.facebook.com/pljuridico/" target="_blank" class="rede-social" rel="noopener noreferrer">
-                        <i class="fab fa-facebook"></i>
-                        <span>Facebook</span>
-                    </a>
-
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="images/post1.png" alt="Post Instagram"></div>
+                    <div class="swiper-slide"><img src="images/post2.png" alt="Post Instagram"></div>
+                    <div class="swiper-slide"><img src="images/post3.png" alt="Post Instagram"></div>
                 </div>
-        </div>
-    <!-- SERVIÇOS -->
-    <section id="servicos" class="secao-pagina fundo-escuro">
-        <div class="interface">
-            <h2>Serviços</h2>
-
-            <div class="servicos-container">
-
-                <ul class="lista-servicos">
-                    <h3 id="sublinhado">Áreas de atuação</h3>
-                    <br>
-                    <li>Direito Civil</li>
-                    <li>Direito Trabalhista</li>
-                    <li>Direito Empresarial</li>
-                    <li>Direito do Consumidor</li>
-                    <li>Direito de Família</li>
-                    <li>Direito Previdenciário</li>
-                    <li>Entre outros ramos do Direito</li>
-                </ul>
-
-                <ul class="lista-servicos">
-                    <h3 id="sublinhado">Principais Serviços</h3>
-                    <br>
-                    <li>Audiência</li>
-                    <li>Despacho com Juiz</li>
-                    <li>Elaboração de peças processuais e contratos</li>
-                    <li>Guia, Certidões e Alvarás</li>
-                    <li>Diligências Cartorárias e Administrativas</li>
-                    <li>Outros Serviços Relacionados à Advocacia Judicial ou Extrajudicial</li>
-                    <li>Entre outros ramos do Direito</li>
-                </ul>
-
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
             </div>
         </div>
-    </section>
-
-    <div class="linha-meio">
-                <div class="linha2">
-                    <a href="https://www.instagram.com/pennalexjuridico/" target="_blank" class="rede-social" rel="noopener noreferrer">
-                        <i class="fab fa-instagram"></i>
-                        <span>Instagram</span>
-                    </a>
-
-                    <a href="https://www.facebook.com/pljuridico/" target="_blank" class="rede-social" rel="noopener noreferrer">
-                        <i class="fab fa-facebook"></i>
-                        <span>Facebook</span>
-                    </a>
-
                 </div>
-        </div>
-    
-    <!-- FALE CONOSCO -->
-    <section id="contato" class="secao-pagina">
-        <div class="interface">
-            <h2>Fale Conosco</h2>
-            <div class="servicos-container2">
-
-                <form class="form-contato">
-                    <input type="text" placeholder="Seu nome" required>
-                    <input type="email" placeholder="Seu e-mail" required>
-                    <textarea placeholder="Sua mensagem" required></textarea>
-                    <button type="submit">Enviar</button>
-                </form>
-
-                <ul class="contato">
-                    <h3 id="sublinhado2">Números de contato</h3>
-                    <br>
-                    <li>(21)96422-2488 / (21)99637-8332 <i class="fa-solid fa-mobile"></i></li>
-                    <br>
-                    <li>(21)26534906 / (21)36532874 <i class="fa-solid fa-phone"></i></li>
-                    <br>
-                    <h3 id="sublinhado2">E-mail de Contato</h3>
-                    <br>
-                    <li>pennalexjuridico@gmail.com</li>
-        
-                </ul>
-
             </div>
         </div>
-    </section>
-    <div class="linha-meio">
-                <div class="linha2">
-                    <a href="https://www.instagram.com/pennalexjuridico/" target="_blank" class="rede-social" rel="noopener noreferrer">
-                        <i class="fab fa-instagram"></i>
-                        <span>Instagram</span>
-                    </a>
 
-                    <a href="https://www.facebook.com/pljuridico/" target="_blank" class="rede-social" rel="noopener noreferrer">
-                        <i class="fab fa-facebook"></i>
-                        <span>Facebook</span>
-                    </a>
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
+        </section>
+
+        <section id="contato" class="secao-pagina">
+            <div class="interface">
+                <h2>Fale Conosco</h2>
+                <div class="servicos-container2">
+                    <form class="form-contato">
+                        <input type="text" placeholder="Seu nome" required>
+                        <input type="email" placeholder="Seu e-mail" required>
+                        <textarea placeholder="Sua mensagem" required></textarea>
+                        <button type="submit">Enviar</button>
+                    </form>
+                    <ul class="noticias">
+                        <h3 id="sublinhado2">Números de contato</h3>
+                        <br>
+                        <li>(21)96422-2488 / (21)99637-8332 <i class="fa-solid fa-mobile"></i></li>
+                        <br>
+                        <li>(21)26534906 / (21)36532874 <i class="fa-solid fa-phone"></i></li>
+                        <br>
+                        <h3 id="sublinhado2">E-mail de Contato</h3>
+                        <br>
+                        <li>pennalexjuridico@gmail.com</li>
+                        <br>
+                    </ul>
                 </div>
+            </div>
+        </section>
+
+        <footer class="rodape">
+    <div class="rodape-container">
+
+        <div class="rodape-logo">
+            <h2>PennaLex</h2>
+            <p>
+                Soluções jurídicas modernas com excelência, ética e compromisso. 
+                Atuamos com dedicação para garantir segurança e resultados aos nossos clientes.
+            </p>
         </div>
-    
+
+        <div class="rodape-links">
+            <h3>Navegação</h3>
+            <a href="#us">Quem Somos</a>
+            <a href="#servicos">Serviços</a>
+            <a href="#redes">Notícias</a>
+            <a href="#contato">Contato</a>
+        </div>
+
+        <div class="rodape-contato">
+            <h3>Contato</h3>
+            <p>(21) 96422-2488</p>
+            <p>(21) 99637-8332</p>
+            <p>pennalexjuridico@gmail.com</p>
+        </div>
+
+    </div>
+
+    <div class="rodape-direitos">
+        <p>© 2026 PennaLex - Todos os direitos reservados</p>
+    </div>
+</footer>
+
     </main>
-    
-</body>
 
-</html>
+    <script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    /* ELEMENTOS */
+    const menuIcon = document.querySelector(".menu-icon");
+    const menuIconTopo = document.querySelector(".menu-icon-topo");
+    const menuDrop = document.getElementById("menuDrop");
+    const btnFechar = document.getElementById("btnFecharMenu");
+    const topo = document.querySelector(".topo-site.topo-escondido");
+
+    const lupa = document.querySelector(".icone-busca");
+    const barraBusca = document.getElementById("barraBuscaTopo");
+
+    let menuAberto = false;
+    let buscaAberta = false;
+
+    /* ================= MENU ================= */
+
+    const abrirMenu = () => {
+        menuDrop.classList.add("open");
+        menuAberto = true;
+
+        if(menuIcon){
+            menuIcon.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+        }
+    };
+
+    const fecharMenu = () => {
+        menuDrop.classList.remove("open");
+        menuAberto = false;
+
+        if(menuIcon){
+            menuIcon.innerHTML = '<i class="fa-solid fa-bars"></i>';
+        }
+    };
+
+    const toggleMenu = () => {
+        if(menuAberto){
+            fecharMenu();
+        } else {
+            abrirMenu();
+        }
+
+        // Fecha busca se abrir menu
+        if(barraBusca){
+            barraBusca.classList.remove("ativa");
+            buscaAberta = false;
+        }
+    };
+
+    if(menuIcon) menuIcon.addEventListener("click", toggleMenu);
+    if(menuIconTopo) menuIconTopo.addEventListener("click", toggleMenu);
+
+    if(btnFechar){
+        btnFechar.addEventListener("click", (e) => {
+            e.stopPropagation();
+            fecharMenu();
+        });
+    }
+
+    /* Fecha menu ao clicar em links */
+    document.querySelectorAll(".menu-drop-content a")
+        .forEach(link => link.addEventListener("click", fecharMenu));
+
+    /* ================= BUSCA ================= */
+
+    if(lupa && barraBusca){
+
+        lupa.addEventListener("click", (e) => {
+            e.preventDefault();
+
+            buscaAberta = !buscaAberta;
+
+            if(buscaAberta){
+                barraBusca.classList.add("ativa");
+            } else {
+                barraBusca.classList.remove("ativa");
+            }
+
+            fecharMenu(); // fecha menu ao abrir busca
+        });
+
+        document.addEventListener("click", (e) => {
+            if (!barraBusca.contains(e.target) && !lupa.contains(e.target)) {
+                barraBusca.classList.remove("ativa");
+                buscaAberta = false;
+            }
+        });
+    }
+
+    /* ================= SCROLL (UNIFICADO) ================= */
+
+    window.addEventListener("scroll", () => {
+
+        // Navbar aparece
+        if(window.scrollY > 150){
+            topo.classList.add("ativo");
+            topo.style.pointerEvents = "auto";
+            topo.style.opacity = "1";
+            topo.style.transform = "translateY(0)";
+        } else {
+            topo.classList.remove("ativo");
+            topo.style.pointerEvents = "none";
+            topo.style.opacity = "0";
+            topo.style.transform = "translateY(-100%)";
+        }
+
+        // Fecha tudo no scroll
+        fecharMenu();
+
+        if(barraBusca){
+            barraBusca.classList.remove("ativa");
+            buscaAberta = false;
+        }
+    });
+
+    /* ================= SWIPER ================= */
+
+    new Swiper(".mySwiper", {
+        effect: "coverflow",
+        grabCursor: true,
+        centeredSlides: true,
+        slidesPerView: "auto",
+        loop: true,
+
+        coverflowEffect: {
+            rotate: 30,
+            stretch: 0,
+            depth: 200,
+            modifier: 1,
+            slideShadows: true,
+        },
+
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+
+        autoplay: {
+            delay: 2500,
+            disableOnInteraction: false,
+        },
+    });
+
+});
+</script>
+</body>
+</html>     
