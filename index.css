@@ -287,11 +287,12 @@ h1 {
 .topo-fundo {
     /* Adicionamos uma camada preta com 50% de opacidade (0.5) */
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
-                url(".images/cristo4.jpeg") no-repeat center center;
+                url("images/cristo4.jpeg") no-repeat center center;
     background-size: cover;
-    height: 100vh; 
+    height: 100vmin; 
     display: flex;
     align-items: center; 
+    overflow:hidden;
 }
 
 .img-topo-site {
@@ -381,7 +382,7 @@ h1 {
     position: absolute;
     inset: 0;
     /* Carrega a mesma imagem do topo */
-    background: url(".images/pena2.svg") repeat center;
+    background: url("images/pena2.svg") repeat center;
     /* Deixei o tamanho um pouco menor (80vmin) para caber legal na faixa fina */
     background-size: 80vmin; 
     
@@ -418,7 +419,7 @@ h1 {
     position: absolute;
     inset: 0;
     /* Carrega a mesma imagem do topo */
-    background: url(".images/pena2.svg") repeat center;
+    background: url("images/pena2.svg") repeat center;
     /* Deixei o tamanho um pouco menor (80vmin) para caber legal na faixa fina */
     background-size: 80vmin; 
     
