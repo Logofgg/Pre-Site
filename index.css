@@ -1,4 +1,4 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -6,24 +6,23 @@
     font-weight: 800;
 }
 
-body{
-    background-color: #7c0002;
-    height: 100vh;
+/* O body NÃO pode ter padding no topo para a imagem colar 100% */
+body {
+    background-color: #7d0e0e;
     position: relative;
     overflow-x: hidden;
-    overflow-y: hidden;
 }
 
-html, body {
+/* Esconde barras de rolagem nativas preservando o scroll */
+/*html, body {
     overflow-y: scroll;
     -ms-overflow-style: none;
     scrollbar-width: none;
 }
-
 html::-webkit-scrollbar, 
 body::-webkit-scrollbar {
     display: none;
-}
+}*/
 
 main {
     position: relative;
@@ -50,35 +49,80 @@ a {
 .flex {
     display: flex;
 }
+
+/* CONFIGURAÇÃO DA BARRA DE NAVEGAÇÃO */
 .topo-site {
-  width: 100%;
-  background: #B21919;  
-  padding: 10px 20px;
-  text-align: center;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 9999;
-  display: flex;
-  align-items: center;
-  display: flex;
-  justify-content: space-between;
+    width: 100%;
+    background: transparent; /* começa transparente */
+    padding: 15px 40px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    transition: all 0.4s ease;
+}
+
+/* área dos botões */
+.acoes-topo{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+/* ícones */
+#btnBusca, .menu-icon{
+    font-size: 22px;
+    color: white;
+    cursor: pointer;
+}
+
+/* barra de busca escondida */
+.barra-busca{
+    position: fixed;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    padding: 10px 20px;
+
+    transform: translateY(-100%);
+    transition: 0.3s;
+    z-index: 99998;
+}
+
+/* quando ativa */
+.barra-busca.ativa{
+    transform: translateY(0);
+}
+
+/* input */
+.barra-busca input{
+    width: 100%;
+    padding: 10px;
+    border-radius: 20px;
+    border: none;
+}
+
+/* Começa invisível jogada para cima */
+.topo-escondido {
+    transform: translateY(-100%);
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Aparece suavemente ao rolar */
+.topo-site.ativo {
+    background: #921818;
+    backdrop-filter: blur(10px);
 }
 
 h1 {
     font-family: 'Arizonia', cursive;
     font-weight: 400;
-    text-align: center;
-    font-size: 1,2vw;
-}
-
-body {
-  padding-top: 40px; 
-}
-
-header .logo-pequena img{
-  width: 50px;
-  height: auto;
+    font-size: 30px;
 }
 
 .logo-e-titulo {
@@ -87,18 +131,15 @@ header .logo-pequena img{
     gap: 12px; 
 }
 
-/* Estilo do título */
 .logo-e-titulo h1 {
     color: #fcb143;
 }
 
-/* Ajuste da logo */
 .logo-e-titulo img {
-    width: 50px;
+    width: 45px;
     height: auto; 
 }
 
-/* Ícone de menu */
 .menu-icon {
     font-size: 30px;
     cursor: pointer;
@@ -111,6 +152,7 @@ header .logo-pequena img{
   color: #fcb143;
 }
 
+/* WHATSAPP EXPANSÍVEL */
 .botao-whatsapp-expand {
     position: fixed;
     bottom: 20px;
@@ -128,12 +170,27 @@ header .logo-pequena img{
     height: 60px;
     border-radius: 50px;
     font-size: 20px;
-    text-decoration: none;
     box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     transition: width 0.3s, padding 0.3s;
     width: 60px;               
     overflow: hidden;
     white-space: nowrap;
+}
+
+.botao-whatsapp-expand a {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(37,211,102, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 15px rgba(37,211,102, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(37,211,102, 0);
+    }
 }
 
 .botao-whatsapp-expand i {
@@ -156,21 +213,50 @@ header .logo-pequena img{
     opacity: 1;
 }
 
-/* MENU DESLIZANTE */
+.search-box {
+    position: relative;
+}
+
+.search-box input {
+    padding: 8px 35px 8px 12px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+}
+
+.search-box i {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #333;
+}
+
+/* MENU DESLIZANTE BRANCO */
 .menu-drop {
     position: fixed;
     top: -500px; 
     left: 0;
     width: 100%;
-    background: white;
-    box-shadow: 0 4px 10px #0003;
+    
+    /* 1. Fundo branco bem transparente (20% de opacidade) */
+    background: rgba(255, 255, 255, 0.2); 
+    
+    /* 2. O efeito de desfoque estilo vidro fosco */
+    backdrop-filter: blur(15px); 
+    -webkit-backdrop-filter: blur(15px); /* Suporte para navegador Safari */
+    
+    /* 3. Uma bordinha sutil para dar acabamento */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3); 
+    
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
     padding: 40px 0;
     transition: 0.4s ease;
-    z-index: 9999;
+    z-index: 99998;
 }
 
 .menu-drop.open {
-    top: 70px; 
+    top: 75px; /* Alinhado logo abaixo da barra vermelha */
 }
 
 .menu-drop-content {
@@ -191,53 +277,128 @@ header .logo-pequena img{
     display: block;
     margin: 6px 0;
     color: #333;
-    text-decoration: none;
 }
 
 .menu-drop-content .col a:hover {
-    color: #B21919;
+    color: white;
 }
 
-/* Ícone do menu */
-.menu-icon {
-    cursor: pointer;
-    font-size: 30px;
-}
-
-.topo-fundo{
-    background:url("images/cristo4.jpeg") no-repeat center top;
-    background-size:cover;
-    height:clamp(410px,64vmin,700px);
-    min-height:410px;
-    overflow:hidden;
+/* CONFIGURAÇÃO DA IMAGEM DO TOPO (100% da tela) */
+.topo-fundo {
+    /* Adicionamos uma camada preta com 50% de opacidade (0.5) */
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                url("images/cristo44.jpeg") no-repeat center center;
+    background-size: cover;
+    height: 100vh; 
+    display: flex;
+    align-items: center; 
 }
 
 .img-topo-site {
-    height: 100vw;
     width: 100%;
     position: relative;
 }
 
-.img-topo-site h2{
-    padding-top: 110px;
+.img-topo-site h2 {
     font-size: 45px;
     color: white;
-    z-index: 10;
     padding-inline: 95px;
     text-align: left;
-    
 }
 
-.img-topo-site h3{
+.img-topo-site h3 {
     font-size: 25px;
     color: white;
-    z-index: 10;
     padding-inline: 95px;
     text-align: left;
-
+    margin-top: 15px;
 }
 
+.barra-busca-topo {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 30vmin;
+    padding: 15px;
+    transform: translateY(-120%);
+    transition: 0.3s;
+    z-index: 99999;
+}
+
+.barra-busca-topo.ativa {
+    transform: translateY(0);
+}
+
+.barra-busca-topo input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 20px;
+    border: none;
+}
+
+
+
+/* OUTROS ELEMENTOS DO SITE */
 .linha2 {
+  width: 100vw;        
+  height: 85vmin 0;           
+  background: #2a0e0e;
+  display: flex;                
+  justify-content: flex-start;      
+  align-items: center;
+  color: white;
+  gap: 22px;
+  
+  /* ADICIONE ESTAS DUAS LINHAS: */
+  position: relative;
+  overflow: hidden; 
+}
+
+.linha2 h2 {
+    display: block !important; /* Força a exibição se houver algum conflito */
+    font-size: 42px;
+    color: #fcb143;            /* O dourado que você usa */
+    margin-bottom: 25px;
+    padding-inline: 0;         /* Zeramos o padding para alinhar à esquerda */
+}
+
+.linha2 p {
+    font-size: 20px;
+    padding-inline: 0; /* Removemos o padding antigo para alinhar com o H2 */
+    max-width: 900px; /* Mantém uma largura de leitura confortável */
+}
+
+.linha2 .interface {
+    position: relative; /* Isso é essencial */
+    z-index: 2;         /* Garante que o texto fique acima da marca d'água */
+    padding: 85px 90px; /* Alinhamento igual às outras seções */
+    width: 100%;        /* Garante que ela ocupe o espaço necessário */
+    text-align: left;
+}
+
+.linha2::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    /* Carrega a mesma imagem do topo */
+    background: url("images/pena2.svg") repeat center;
+    /* Deixei o tamanho um pouco menor (80vmin) para caber legal na faixa fina */
+    background-size: 80vmin; 
+    
+    /* Opacidade de 15% para ficar bem sutil no fundo escuro */
+    opacity: 0.05; 
+    
+    pointer-events: none;
+    z-index: 0; 
+}
+
+.linha2 .interface {
+    /* Isso garante que o texto não cole na borda da tela */
+    padding-inline: 90px; 
+    text-align: left; /* Garante o alinhamento do texto à esquerda */
+}
+
+.linha3 {
   width: 100vw;        
   max-width: 5000px;
   height: 21vmin;           
@@ -252,18 +413,182 @@ header .logo-pequena img{
   gap: 22px;
 }
 
+.linha3::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    /* Carrega a mesma imagem do topo */
+    background: url("images/pena2.svg") repeat center;
+    /* Deixei o tamanho um pouco menor (80vmin) para caber legal na faixa fina */
+    background-size: 80vmin; 
+    
+    /* Opacidade de 15% para ficar bem sutil no fundo escuro */
+    opacity: 0.05; 
+    
+    pointer-events: none;
+    z-index: 0; 
+}
+
+.linha3 a:hover {
+  transform: scale(1.1);
+  color: #fcb143;
+}
+
+/* ESTILO DO NOVO MENU TRANSPARENTE DO TOPO */
+.menu-topo-fixo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 0px 50px;
+    z-index: 100;
+    transition: opacity 0.3s ease;
+}
+
+.topo-escondido {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    transform: translateY(-100%);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 99999;
+    background: #921818;
+    transition: all 0.4s ease;
+}
+
+.topo-escondido.ativo {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Quando a barra vermelha ativa, esse menu transparente some */
+.topo-site.ativo ~ .menu-topo-fixo,
+body:has(.topo-site.ativo) .menu-topo-fixo {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.interface-topo {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between; /* Joga os elementos para a direita como na foto */
+    align-items: center;
+    gap: 30px;
+}
+
+.conteudo-direita {
+    display: flex;
+    align-items: center;
+    gap: 30px; /* Espaço entre os links e os ícones */
+}
+
+.logo-topo-fixo img {
+    height: 16vw; /* Controle de altura da sua logo pena2.svg */
+    width: auto;   /* Mantém a proporção original */
+    display: block;
+    transition: transform 0.2s ease;
+    font-family: 'Arizonia', cursive;
+}
+
+.logo-topo-fixo img:hover {
+    transform: scale(1.05); /* Efeito sutil ao passar o mouse */
+}
+
+.links-redes {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.links-redes a {
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.links-redes a:hover {
+    color: #fcb143;
+}
+
+.divisor {
+    color: #ffffff;
+    opacity: 0.5;
+    font-weight: 300;
+}
+
+.icones-direita {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.icone-busca {
+    color: #ffffff;
+    font-size: 18px;
+    transition: color 0.2s;
+}
+
+.icone-busca:hover {
+    color: #fcb143;
+}
+
+.menu-icon-topo {
+    color: #ffffff;
+    font-size: 28px;
+    cursor: pointer;
+    transition: transform 0.2s, color 0.2s;
+}
+
+.menu-icon-topo:hover {
+    transform: scale(1.1);
+    color: #fcb143;
+}
+
+.fechar-menu-x {
+    position: absolute;
+    top: 20px;
+    right: 8vmin; /* 🔥 agora fica na esquerda */
+
+    font-size: 28px;
+    color: #fcb143; /* 🔥 amarelo */
+
+    cursor: pointer;
+    z-index: 100000;
+    transition: 0.2s;
+}
+
+.fechar-menu-x:hover {
+    transform: scale(1.2);
+    opacity: 0.8;
+}
+
+/* Ajuste para mobile */
+@media (max-width: 768px) {
+    .links-redes {
+        display: none; /* Esconde os textos no celular para não amontoar */
+    }
+}
+
+.search-box {
+    margin-left: auto;
+    margin-right: 20px; /* ajusta aqui */
+}
+
 .linha2 a:hover {
   transform: scale(1.1);
   color: #fcb143;
 }
 
-/* Seções internas */
 .secao-pagina {
-    padding-top: 85px;
-    padding-bottom: 110px;
+    padding: 85px 90px 110px 90px;
     color: white;
-    padding-left: 90px;
-    padding-right: 90px;
 }
 
 .secao-pagina h2 {
@@ -279,29 +604,17 @@ header .logo-pequena img{
     max-width: 900px;
 }
 
-/* Lista de serviços */
-.lista-servicos {
-    list-style: disc;
-    padding: 0;
-    margin-top: 20px;
-}
 
-.servicos-container{
+.servicos-container {
     display: flex;
     gap: 30vw;
     align-items: flex-start;
 }
 
-.servicos-container2{
+.servicos-container2 {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 10vw;
-}
-
-.titulo-sessao {
-    display: flex;
-    gap: 10vw;
-    align-items: flex-start;
 }
 
 .lista-servicos li {
@@ -309,9 +622,122 @@ header .logo-pequena img{
     margin-bottom: 12px;
 }
 
-/* Formulário */
+.instagram-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    padding: 40px 0;
+}
+
+/* Garante que o swiper tenha um tamanho fixo horizontal */
+.mySwiper {
+    
+    max-width: 20px;
+    height: 25px;
+    position: relative; /* Necessário para as setas se posicionarem em relação a ele */
+}
+
+.insta-info {
+    flex: 1;
+    max-width: 450px;
+}
+
+.insta-info h2 {
+    font-size: 38px;
+    color: #fcb143;
+    margin-bottom: 20px;
+}
+
+.insta-user {
+    display: flex;          /* Mantemos o flex */
+    flex-direction: column; /* FORÇA O ÍCONE PARA CIMA */
+    align-items: center;    /* Centraliza o ícone com o texto */
+    gap: 10px;              /* Espaço entre o ícone e o @ */
+    margin-top: 30px;
+    font-size: 20px;        /* Tamanho do texto @ */
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* Para controlar o tamanho do ícone separadamente */
+.insta-user i {
+    font-size: 80px;        /* Deixa o ícone do Instagram grande como na foto */
+    color: white;
+}
+
+/* Estilizando as setas do Swiper */
+.swiper-button-next, 
+.swiper-button-prev {
+    color: #fcb143 !important; /* Cor dourada da PennaLex */
+    background: rgba(0, 0, 0, 0.3); /* Um fundinho sutil para dar contraste */
+    width: 45px !important;
+    height: 45px !important;
+    border-radius: 50%;
+    z-index: 100;
+}
+
+/* Diminuindo o tamanho do ícone interno da seta */
+.swiper-button-next::after, 
+.swiper-button-prev::after {
+    font-size: 20px !important;
+    font-weight: bold;
+}
+
+/* Ajuste de posição para não colarem na borda */
+.swiper-button-next {
+    right: 0px !important;
+}
+
+.swiper-button-prev {
+    left: 0px !important;
+}
+
+/* Efeito de hover */
+.swiper-button-next:hover, 
+.swiper-button-prev:hover {
+    background: rgba(252, 177, 67, 0.2);
+    transform: scale(1.1);
+    transition: 0.3s;
+}
+
+/* Estilo do Carrossel */
+.swiper {
+    width: 100%;
+    max-width: 30vmin;
+    height: 46vmin;
+    padding: 20px 0;
+}
+
+.swiper-slide {
+    background-position: center;
+    background-size: cover;
+    border-radius: 15px;
+    overflow: hidden;
+    border: 8px solid #fcb143;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    max-width: 400px;
+}
+
+/* Cores das setas */
+.swiper-button-next, .swiper-button-prev {
+    color: #fcb143 !important;
+}
+
+@media (max-width: 768px) {
+    .instagram-wrapper { flex-direction: column; text-align: center; }
+    .insta-info { max-width: 100%; }
+}
+
 .form-contato {
-    max-width: 900px;
+    max-width: 50vmin;
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -338,132 +764,92 @@ header .logo-pequena img{
 .contato {
     font-size: 3vmin;
     flex: 1;
+} 
 
+.rodape {
+    background: #2a0e0e;
+    color: white;
+    padding: 50px 40px 20px;
 }
 
-#sublinhado{
-    text-decoration: underline;
-    font-size: 3vmin;
+.rodape-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px;
 }
 
-#sublinhado2{
-    text-decoration: underline;
-    font-size: 4svmin;
+.rodape h2 {
+    color: #fcb143;
 }
 
-.form-contato button:hover {
-    opacity: 0.9;
+.rodape h3 {
+    color: #fcb143;
+    margin-bottom: 10px;
 }
 
-@media (max-width:768px){
-
-.menu-drop{
-    top:0;
-    left:auto;
-    right:0;
-    width:70%;
-    height:100vh;
-
-    transform:translateX(100%); /* começa fora da tela (direita) */
-    transition:transform 0.4s ease;
-    padding-top:80px;
+.rodape p, 
+.rodape a {
+    font-size: 14px;
+    color: white;
+    margin: 5px 0;
+    display: block;
 }
 
-/* quando abre */
-.menu-drop.open{
-    transform:translateX(0);
+.rodape a:hover {
+    color: #fcb143;
 }
 
-/* conteúdo em coluna */
-.menu-drop-content{
-    flex-direction:column;
-    gap:30px;
+.rodape-direitos {
+    text-align: center;
+    margin-top: 30px;
+    border-top: 1px solid rgba(255,255,255,0.2);
+    padding-top: 15px;
+    font-size: 13px;
 }
 
-}
 
-@media (max-width:768px){
+#sublinhado { text-decoration: underline; font-size: 3vmin; }
+#sublinhado2 { text-decoration: underline; font-size: 4vmin; }
 
-.secao-pagina{
-    padding-left:30px;
-    padding-right:30px;
-    padding-bottom: 70px;
-}
+.form-contato button:hover { opacity: 0.9; }
 
-}
-
-@media (max-width:768px){
-    body::before{
-        background-size:110vmin;
+/* MEDIA QUERIES MOBILE */
+@media (max-width: 768px) {
+    .menu-drop {
+        top: 0;
+        left: auto;
+        right: 0;
+        width: 70%;
+        height: 100vh;
+        transform: translateX(100%);
+        padding-top: 80px;
     }
-}
 
-@media (max-width:768px){
-    .linha2{
-        height: 31vmin;
+    .menu-drop.open {
+        transform: translateX(0);
     }
-}
 
-@media (max-width:768px){
-
-.img-topo-site h2{
-    font-size: 26px;
-    padding-inline: 20px;
-}
-
-.img-topo-site h3{
-    font-size: 16px;
-    padding-inline: 20px;
-}
-
-.secao-pagina h2{
-    font-size: 26px;
-    padding-top: 6vw;
-}
-
-.secao-pagina p{
-    font-size: 15px;
-}
-
-.lista-servicos li{
-    font-size: 16px;
-}
-
-}
-
-@media (max-width:768px){
-    .topo-fundo{
-        height:clamp(100px,20vmin,300px);
-        
+    .menu-drop-content {
+        flex-direction: column;
+        gap: 30px;
     }
-}
 
-@media (max-width:768px){
-    #sublinhado{
-        font-size: 5vmin;
+    .secao-pagina {
+        padding: 30px 30px 70px 30px;
     }
-}
 
-@media (max-width:768px){
-    #sublinhado2{
-        font-size: 6vmin;
+    .img-topo-site h2 {
+        font-size: 26px;
+        padding-inline: 20px;
     }
-}
 
-@media (max-width:768px){
+    .img-topo-site h3 {
+        font-size: 16px;
+        padding-inline: 20px;
+    }
 
-.servicos-container{
-    flex-direction: column;
-    padding: 10vmin;
-}
-
-}
-
-@media (max-width:768px){
-
-.servicos-container2{
-    grid-template-columns: 1fr;
-    padding: 10vmin;
-}
-
+    .secao-pagina h2 {
+        font-size: 26px;
+    }
 }
