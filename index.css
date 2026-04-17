@@ -986,9 +986,3 @@ body:has(.topo-site.ativo) .menu-topo-fixo {
     }
 }
 
-@media (max-width:768px){
-    .topo-site {
-    width: 100%;
-    height: 18vmin;
-    }
-}
