@@ -287,7 +287,7 @@ h1 {
 .topo-fundo {
     /* Adicionamos uma camada preta com 50% de opacidade (0.5) */
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-                url("images/cristo4.jpeg") no-repeat center center;
+                url("images/cristo44.jpeg") no-repeat center center;
     background-size: cover;
     background-position: center 30%;
     height: 100vh; 
@@ -342,7 +342,7 @@ h1 {
 /* OUTROS ELEMENTOS DO SITE */
 .linha2 {
   width: 100vw;        
-  height: 85vmin;           
+  height: 85vmin 0;           
   background: #2a0e0e;
   display: flex;                
   justify-content: flex-start;      
@@ -413,6 +413,12 @@ h1 {
   color: white;
   gap: 22px;
 }
+
+.linha3 a:hover {
+  transform: scale(1.1);
+  color: #fcb143;
+}
+
 /* ESTILO DO NOVO MENU TRANSPARENTE DO TOPO */
 .menu-topo-fixo {
     position: absolute;
@@ -793,7 +799,6 @@ body:has(.topo-site.ativo) .menu-topo-fixo {
 
 .form-contato button:hover { opacity: 0.9; }
 
-/* MEDIA QUERIES MOBILE */
 @media (max-width: 768px) {
     .menu-drop {
         top: 0;
@@ -814,8 +819,8 @@ body:has(.topo-site.ativo) .menu-topo-fixo {
         gap: 30px;
     }
 
-    .secao-pagina {
-        padding: 30px 30px 70px 30px;
+    .quem-somos h2{
+        padding: 30px 30px 70px 3vmin;
     }
 
     .img-topo-site h2 {
@@ -829,6 +834,132 @@ body:has(.topo-site.ativo) .menu-topo-fixo {
     }
 
     .secao-pagina h2 {
-        font-size: 26px;
+        font-size: 26vmin;
+    }
+}
+
+@media (max-width: 768px) {
+    .servicos-container {
+        flex-direction: column;
+        gap: 10vmin;
+        padding-left: 6vmin;
+    }
+
+    .servicos-container2 {
+        grid-template-columns: 1fr;
+        gap: 10vmin;
+    }
+
+    .h3{
+        font-size: 10vmin;
+    }
+}
+
+@media (max-width: 768px) {
+    .logo-topo-fixo img {
+        height: 42vmin;
+    }
+}
+
+@media (max-width: 768px) {
+    .instagram-wrapper {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .insta-user i {
+        font-size: 50px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    /* Centraliza a seção inteira */
+    #contato .interface {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    /* Centraliza o container */
+    .servicos-container2 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+        width: 100%;
+    }
+
+    /* Formulário centralizado e com largura boa */
+    .form-contato {
+        width: 100%;
+        max-width: 350px;
+    }
+
+    /* Inputs ocupando toda largura */
+    .form-contato input,
+    .form-contato textarea {
+        width: 100%;
+    }
+
+    /* Lista de contatos centralizada */
+    .noticias {
+        text-align: center;
+    }
+}
+
+@media (max-width:768px){
+
+.secao-pagina{
+    padding-left:30px;
+    padding-right:30px;
+    padding-bottom: 70px;
+}
+
+}
+
+@media (max-width:768px){
+    body::before{
+        background-size:110vmin;
+    }
+}
+
+@media (max-width:768px){
+
+.img-topo-site h2{
+    font-size: 26px;
+    padding-inline: 20px;
+}
+
+.img-topo-site h3{
+    font-size: 16px;
+    padding-inline: 20px;
+}
+
+.secao-pagina h2{
+    font-size: 26px;
+    padding-top: 6vw;
+}
+
+.secao-pagina p{
+    font-size: 15px;
+}
+
+.lista-servicos li{
+    font-size: 16px;
+}
+
+}
+
+@media (max-width:768px){
+    #sublinhado{
+        font-size: 5vmin;
+    }
+}
+
+@media (max-width:768px){
+    #sublinhado2{
+        font-size: 6vmin;
     }
 }
