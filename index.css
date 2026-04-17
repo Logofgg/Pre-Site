@@ -293,6 +293,8 @@ h1 {
     min-height: 100vh; 
     display: flex;
     align-items: center; 
+    position: relative;
+    z-index: 1;
 }
 
 .img-topo-site {
@@ -342,13 +344,16 @@ h1 {
 /* OUTROS ELEMENTOS DO SITE */
 .linha2 {
   width: 100vw;        
-  height: 85vmin;           
+  height: 85vmin;
+  position: relative;
+  z-index: 0;
   background: #2a0e0e;
   display: flex;                
   justify-content: flex-start;      
   align-items: center;
   color: white;
   gap: 22px;
+    
   
   /* ADICIONE ESTAS DUAS LINHAS: */
   position: relative;
