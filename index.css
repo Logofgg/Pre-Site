@@ -970,3 +970,12 @@ body:has(.topo-site.ativo) .menu-topo-fixo {
         padding: 40px 30px; /* topo/baixo | lados */
     }
 }
+
+@media (max-width:768px){
+    .swiper {
+    width: 100%;
+    max-width: 80vmin;
+    height: 120vmin;
+    padding: 20px 0;
+    }
+}
