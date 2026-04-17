@@ -344,7 +344,7 @@ h1 {
 /* OUTROS ELEMENTOS DO SITE */
 .linha2 {
   width: 100vw;        
-  min-height: 85vmin;
+  min-height: 85vmin 0;
   position: relative;
   z-index: 0;
   background: #2a0e0e;
