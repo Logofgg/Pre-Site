@@ -342,7 +342,7 @@ h1 {
 /* OUTROS ELEMENTOS DO SITE */
 .linha2 {
   width: 100vw;        
-  height: 85vmin;           
+  height: 8vh;           
   background: #2a0e0e;
   display: flex;                
   justify-content: flex-start;      
