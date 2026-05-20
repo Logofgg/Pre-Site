@@ -6,30 +6,18 @@
     font-weight: 800;
 }
 
-/* O body NÃO pode ter padding no topo para a imagem colar 100% */
 body {
     background-color: #7d0e0e;
     position: relative;
     overflow-x: hidden;
 }
 
-/* Esconde barras de rolagem nativas preservando o scroll */
-/*html, body {
-    overflow-y: scroll;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-}
-html::-webkit-scrollbar, 
-body::-webkit-scrollbar {
-    display: none;
-}*/
-
 main {
     position: relative;
     z-index: 1;
 }
 
-/* Marca d’água */
+/* Marca d'água */
 main::before {
     content: "";
     position: fixed;
@@ -50,10 +38,10 @@ a {
     display: flex;
 }
 
-/* CONFIGURAÇÃO DA BARRA DE NAVEGAÇÃO */
+/* BARRA DE NAVEGAÇÃO */
 .topo-site {
     width: 100%;
-    background: transparent; /* começa transparente */
+    background: transparent;
     padding: 15px 40px;
     position: fixed;
     top: 0;
@@ -62,58 +50,62 @@ a {
     display: flex;
     align-items: center;
     justify-content: space-between;
-
     transition: all 0.4s ease;
 }
 
-/* área dos botões */
-.acoes-topo{
+.acoes-topo {
     display: flex;
     gap: 20px;
     align-items: center;
 }
 
-/* ícones */
-#btnBusca, .menu-icon{
+#btnBusca, .menu-icon {
     font-size: 22px;
     color: white;
     cursor: pointer;
 }
 
-/* barra de busca escondida */
-.barra-busca{
+.barra-busca {
     position: fixed;
     top: 70px;
     left: 0;
     width: 100%;
     padding: 10px 20px;
-
     transform: translateY(-100%);
     transition: 0.3s;
     z-index: 99998;
 }
 
-/* quando ativa */
-.barra-busca.ativa{
+.barra-busca.ativa {
     transform: translateY(0);
 }
 
-/* input */
-.barra-busca input{
+.barra-busca input {
     width: 100%;
     padding: 10px;
     border-radius: 20px;
     border: none;
 }
 
-/* Começa invisível jogada para cima */
 .topo-escondido {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
     transform: translateY(-100%);
     opacity: 0;
     pointer-events: none;
+    z-index: 99999;
+    background: #921818;
+    transition: all 0.4s ease;
 }
 
-/* Aparece suavemente ao rolar */
+.topo-escondido.ativo {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+}
+
 .topo-site.ativo {
     background: #921818;
     backdrop-filter: blur(10px);
@@ -148,8 +140,8 @@ h1 {
 }
 
 .menu-icon:hover {
-  transform: scale(1.1);
-  color: #fcb143;
+    transform: scale(1.1);
+    color: #fcb143;
 }
 
 /* WHATSAPP EXPANSÍVEL */
@@ -175,22 +167,13 @@ h1 {
     width: 60px;               
     overflow: hidden;
     white-space: nowrap;
-}
-
-.botao-whatsapp-expand a {
     animation: pulse 2s infinite;
 }
 
 @keyframes pulse {
-    0% {
-        box-shadow: 0 0 0 0 rgba(37,211,102, 0.7);
-    }
-    70% {
-        box-shadow: 0 0 0 15px rgba(37,211,102, 0);
-    }
-    100% {
-        box-shadow: 0 0 0 0 rgba(37,211,102, 0);
-    }
+    0%   { box-shadow: 0 0 0 0 rgba(37,211,102, 0.7); }
+    70%  { box-shadow: 0 0 0 15px rgba(37,211,102, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(37,211,102, 0); }
 }
 
 .botao-whatsapp-expand i {
@@ -213,8 +196,11 @@ h1 {
     opacity: 1;
 }
 
+/* SEARCH BOX */
 .search-box {
     position: relative;
+    margin-left: auto;
+    margin-right: 20px;
 }
 
 .search-box input {
@@ -232,23 +218,16 @@ h1 {
     color: #333;
 }
 
-/* MENU DESLIZANTE BRANCO */
+/* MENU DESLIZANTE */
 .menu-drop {
     position: fixed;
     top: -500px; 
     left: 0;
     width: 100%;
-    
-    /* 1. Fundo branco bem transparente (20% de opacidade) */
     background: rgba(255, 255, 255, 0.2); 
-    
-    /* 2. O efeito de desfoque estilo vidro fosco */
     backdrop-filter: blur(15px); 
-    -webkit-backdrop-filter: blur(15px); /* Suporte para navegador Safari */
-    
-    /* 3. Uma bordinha sutil para dar acabamento */
+    -webkit-backdrop-filter: blur(15px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.3); 
-    
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
     padding: 40px 0;
     transition: 0.4s ease;
@@ -256,7 +235,7 @@ h1 {
 }
 
 .menu-drop.open {
-    top: 75px; /* Alinhado logo abaixo da barra vermelha */
+    top: 70px;
 }
 
 .menu-drop-content {
@@ -283,9 +262,8 @@ h1 {
     color: white;
 }
 
-/* CONFIGURAÇÃO DA IMAGEM DO TOPO (100% da tela) */
+/* TOPO FUNDO */
 .topo-fundo {
-    /* Adicionamos uma camada preta com 50% de opacidade (0.5) */
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
                 url("images/cristo4.jpeg") no-repeat center center;
     background-size: cover;
@@ -295,6 +273,7 @@ h1 {
     align-items: center; 
     position: relative;
     z-index: 1;
+
 }
 
 .img-topo-site {
@@ -311,12 +290,13 @@ h1 {
 
 .img-topo-site h3 {
     font-size: 25px;
-    color: white;
+    color: #fcb143;
     padding-inline: 95px;
     text-align: left;
     margin-top: 15px;
 }
 
+/* BARRA DE BUSCA DO TOPO */
 .barra-busca-topo {
     position: fixed;
     top: 0;
@@ -339,88 +319,96 @@ h1 {
     border: none;
 }
 
-
-
-/* OUTROS ELEMENTOS DO SITE */
+/* FAIXAS */
 .linha2 {
-  width: 100vw;        
-  min-height: 85vmin;   /* 🔥 muda aqui */
-  background: #2a0e0e;
-  display: flex;                
-  justify-content: flex-start;      
-  align-items: center;
-  color: white;
-  gap: 22px;
-  
-  position: relative;
-  overflow: visible;   /* 🔥 muda aqui */
+    width: 100vw;        
+    min-height: 85vmin;
+    background: #2a0e0e;
+    display: flex;                
+    justify-content: flex-start;      
+    align-items: center;
+    color: white;
+    gap: 22px;
+    position: relative;
+    overflow: visible;
 }
 
 .linha2 h2 {
-    display: block !important; /* Força a exibição se houver algum conflito */
+    display: block !important;
     font-size: 42px;
-    color: #fcb143;            /* O dourado que você usa */
-    margin-bottom: 25px;
-    padding-inline: 0;         /* Zeramos o padding para alinhar à esquerda */
+    color: #fcb143;
+    margin-bottom: 5vmin;
+    padding-inline: 0;
 }
 
 .linha2 p {
     font-size: 20px;
-    padding-inline: 0; /* Removemos o padding antigo para alinhar com o H2 */
-    max-width: 900px; /* Mantém uma largura de leitura confortável */
+    padding-inline: 0;
+    max-width: 900px;
 }
 
 .linha2 .interface {
-    position: relative; /* Isso é essencial */
-    z-index: 2;         /* Garante que o texto fique acima da marca d'água */
-    padding: 85px 90px; /* Alinhamento igual às outras seções */
-    width: 100%;        /* Garante que ela ocupe o espaço necessário */
+    position: relative;
+    z-index: 2;
+    padding: 85px 90px;
+    width: 100%;
     text-align: left;
+    z-index: 1;
 }
+
+.linha2 .interface p {
+    position: relative;
+    z-index: 2;
+}
+
+.linha2 .interface h2 {
+    position: relative;
+    z-index: 2;
+}
+
+.linha2 .interface .elfsight-wrapper {
+    max-width: 100%;
+    width: 42.5%;
+}
+
 
 .linha2::before {
     content: "";
     position: absolute;
     inset: 0;
-    /* Carrega a mesma imagem do topo */
     background: url("images/pena2.svg") repeat center;
-    /* Deixei o tamanho um pouco menor (80vmin) para caber legal na faixa fina */
     background-size: 80vmin; 
-    
-    /* Opacidade de 15% para ficar bem sutil no fundo escuro */
     opacity: 0.05; 
-    
     pointer-events: none;
     z-index: 0; 
 }
 
-.linha2 .interface {
-    /* Isso garante que o texto não cole na borda da tela */
-    padding-inline: 90px; 
-    text-align: left; /* Garante o alinhamento do texto à esquerda */
+.linha2 a:hover {
+    transform: scale(1.1);
+    color: #fcb143;
 }
 
 .linha3 {
-  width: 100vw;        
-  max-width: 5000px;
-  height: 21vmin;           
-  background: #2a0e0e;
-  border: none;
-  position: relative;
-  display: flex;                
-  justify-content: center;      
-  align-items: center;
-  cursor: pointer;
-  color: white;
-  gap: 22px;
+    width: 100vw;        
+    max-width: 5000px;
+    height: 21vmin;           
+    background: #2a0e0e;
+    border: none;
+    position: relative;
+    display: flex;                
+    justify-content: center;      
+    align-items: center;
+    cursor: pointer;
+    color: white;
+    gap: 22px;
 }
 
 .linha3 a:hover {
-  transform: scale(1.1);
-  color: #fcb143;
+    transform: scale(1.1);
+    color: #fcb143;
 }
 
-/* ESTILO DO NOVO MENU TRANSPARENTE DO TOPO */
+/* MENU TOPO FIXO */
 .menu-topo-fixo {
     position: absolute;
     top: 0;
@@ -431,26 +419,6 @@ h1 {
     transition: opacity 0.3s ease;
 }
 
-.topo-escondido {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    transform: translateY(-100%);
-    opacity: 0;
-    pointer-events: none;
-    z-index: 99999;
-    background: #921818;
-    transition: all 0.4s ease;
-}
-
-.topo-escondido.ativo {
-    transform: translateY(0);
-    opacity: 1;
-    pointer-events: auto;
-}
-
-/* Quando a barra vermelha ativa, esse menu transparente some */
 .topo-site.ativo ~ .menu-topo-fixo,
 body:has(.topo-site.ativo) .menu-topo-fixo {
     opacity: 0;
@@ -461,7 +429,7 @@ body:has(.topo-site.ativo) .menu-topo-fixo {
     max-width: 1200px;
     margin: 0 auto;
     display: flex;
-    justify-content: space-between; /* Joga os elementos para a direita como na foto */
+    justify-content: space-between;
     align-items: center;
     gap: 30px;
 }
@@ -469,19 +437,18 @@ body:has(.topo-site.ativo) .menu-topo-fixo {
 .conteudo-direita {
     display: flex;
     align-items: center;
-    gap: 30px; /* Espaço entre os links e os ícones */
+    gap: 30px;
 }
 
 .logo-topo-fixo img {
-    height: 16vw; /* Controle de altura da sua logo pena2.svg */
-    width: auto;   /* Mantém a proporção original */
+    height: 16vw;
+    width: auto;
     display: block;
     transition: transform 0.2s ease;
-    font-family: 'Arizonia', cursive;
 }
 
 .logo-topo-fixo img:hover {
-    transform: scale(1.05); /* Efeito sutil ao passar o mouse */
+    transform: scale(1.05);
 }
 
 .links-redes {
@@ -540,11 +507,9 @@ body:has(.topo-site.ativo) .menu-topo-fixo {
 .fechar-menu-x {
     position: absolute;
     top: 20px;
-    right: 8vmin; /* 🔥 agora fica na esquerda */
-
+    right: 8vmin;
     font-size: 28px;
-    color: #fcb143; /* 🔥 amarelo */
-
+    color: #fcb143;
     cursor: pointer;
     z-index: 100000;
     transition: 0.2s;
@@ -555,23 +520,7 @@ body:has(.topo-site.ativo) .menu-topo-fixo {
     opacity: 0.8;
 }
 
-/* Ajuste para mobile */
-@media (max-width: 768px) {
-    .links-redes {
-        display: none; /* Esconde os textos no celular para não amontoar */
-    }
-}
-
-.search-box {
-    margin-left: auto;
-    margin-right: 20px; /* ajusta aqui */
-}
-
-.linha2 a:hover {
-  transform: scale(1.1);
-  color: #fcb143;
-}
-
+/* SEÇÕES */
 .secao-pagina {
     padding: 85px 90px 110px 90px;
     color: white;
@@ -590,7 +539,6 @@ body:has(.topo-site.ativo) .menu-topo-fixo {
     max-width: 900px;
 }
 
-
 .servicos-container {
     display: flex;
     gap: 30vw;
@@ -608,20 +556,13 @@ body:has(.topo-site.ativo) .menu-topo-fixo {
     margin-bottom: 12px;
 }
 
+/* SEÇÃO INSTAGRAM */
 .instagram-wrapper {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 40px;
     padding: 40px 0;
-}
-
-/* Garante que o swiper tenha um tamanho fixo horizontal */
-.mySwiper {
-    
-    max-width: 20px;
-    height: 25px;
-    position: relative; /* Necessário para as setas se posicionarem em relação a ele */
 }
 
 .insta-info {
@@ -636,92 +577,46 @@ body:has(.topo-site.ativo) .menu-topo-fixo {
 }
 
 .insta-user {
-    display: flex;          /* Mantemos o flex */
-    flex-direction: column; /* FORÇA O ÍCONE PARA CIMA */
-    align-items: center;    /* Centraliza o ícone com o texto */
-    gap: 10px;              /* Espaço entre o ícone e o @ */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
     margin-top: 30px;
-    font-size: 20px;        /* Tamanho do texto @ */
+    font-size: 20px;
     color: white;
     font-weight: bold;
     text-decoration: none;
 }
 
-/* Para controlar o tamanho do ícone separadamente */
 .insta-user i {
-    font-size: 80px;        /* Deixa o ícone do Instagram grande como na foto */
+    font-size: 80px;
     color: white;
 }
 
-/* Estilizando as setas do Swiper */
-.swiper-button-next, 
-.swiper-button-prev {
-    color: #fcb143 !important; /* Cor dourada da PennaLex */
-    background: rgba(0, 0, 0, 0.3); /* Um fundinho sutil para dar contraste */
-    width: 45px !important;
-    height: 45px !important;
-    border-radius: 50%;
-    z-index: 100;
-}
-
-/* Diminuindo o tamanho do ícone interno da seta */
-.swiper-button-next::after, 
-.swiper-button-prev::after {
-    font-size: 20px !important;
-    font-weight: bold;
-}
-
-/* Ajuste de posição para não colarem na borda */
-.swiper-button-next {
-    right: 0px !important;
-}
-
-.swiper-button-prev {
-    left: 0px !important;
-}
-
-/* Efeito de hover */
-.swiper-button-next:hover, 
-.swiper-button-prev:hover {
-    background: rgba(252, 177, 67, 0.2);
-    transform: scale(1.1);
-    transition: 0.3s;
-}
-
-/* Estilo do Carrossel */
-.swiper {
+/* WIDGET ELFSIGHT */
+.eapps-instagram-feed-container {
+    flex: 1;
+    min-width: 100%;
+    max-width: 100%;
     width: 100%;
-    max-width: 30vmin;
-    height: 46vmin;
-    padding: 20px 0;
-}
-
-.swiper-slide {
-    background-position: center;
-    background-size: cover;
     border-radius: 15px;
     overflow: hidden;
-    border: 8px solid #fcb143;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    border: 4px solid #fcb143;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
-.swiper-slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    max-width: 400px;
+.eapps-instagram-feed-container > div {
+    display: block;
+    width: 100% !important;
 }
 
-/* Cores das setas */
-.swiper-button-next, .swiper-button-prev {
-    color: #fcb143 !important;
+/* Força o widget interno a ocupar 100% */
+.eapps-instagram-feed-container {
+    width: 100% !important;
+    max-width: 100% !important;
 }
 
-@media (max-width: 768px) {
-    .instagram-wrapper { flex-direction: column; text-align: center; }
-    .insta-info { max-width: 100%; }
-}
-
+/* FORMULÁRIO */
 .form-contato {
     max-width: 50vmin;
     display: flex;
@@ -747,11 +642,16 @@ body:has(.topo-site.ativo) .menu-topo-fixo {
     border-radius: 6px;
 }
 
+.form-contato button:hover {
+    opacity: 0.9;
+}
+
 .contato {
     font-size: 3vmin;
     flex: 1;
 } 
 
+/* RODAPÉ */
 .rodape {
     background: #2a0e0e;
     color: white;
@@ -794,13 +694,60 @@ body:has(.topo-site.ativo) .menu-topo-fixo {
     font-size: 13px;
 }
 
+.balanca i{
+    position: absolute;
+    right: 60px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18vw;
+    color: #fcb143;
+    opacity: 0.08;
+    pointer-events: none;
+    z-index: 0;
+}
 
-#sublinhado { text-decoration: underline; font-size: 3vmin; }
+.quem-somos-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.quem-somos-wrapper img {
+    max-width: 40vmin;
+    width: 100%;
+    padding-right: 90px;
+    }
+
+.quem-somos-texto {
+    flex: 1;
+}
+
+.icone-balanca {
+    font-size: 18vw;
+    color: #fcb143;
+    opacity: 0.4;
+    flex-shrink: 0;
+    pointer-events: none;
+    padding-right: 90px;
+}
+
+#sublinhado  { text-decoration: underline; font-size: 3vmin; }
 #sublinhado2 { text-decoration: underline; font-size: 4vmin; }
 
-.form-contato button:hover { opacity: 0.9; }
-
+/* ── RESPONSIVO ── */
 @media (max-width: 768px) {
+    .links-redes {
+        display: none;
+    }
+
+    .search-box {
+        display: none !important;
+    }
+
+    .logo-topo-fixo img {
+        height: 42vmin;
+    }
+
     .menu-drop {
         top: 0;
         left: auto;
@@ -820,8 +767,9 @@ body:has(.topo-site.ativo) .menu-topo-fixo {
         gap: 30px;
     }
 
-    .quem-somos h2{
+    .quem-somos h2 {
         padding: 30px 30px 70px 3vmin;
+        font-size: 26px; /* igual ao .secao-pagina h2 no mobile */
     }
 
     .img-topo-site h2 {
@@ -834,12 +782,25 @@ body:has(.topo-site.ativo) .menu-topo-fixo {
         padding-inline: 20px;
     }
 
-    .secao-pagina h2 {
-        font-size: 26vmin;
+    .secao-pagina {
+        padding-left: 30px;
+        padding-right: 30px;
+        padding-bottom: 70px;
     }
-}
 
-@media (max-width: 768px) {
+    .secao-pagina h2 {
+        font-size: 26px;
+        padding-top: 6vw;
+    }
+
+    .secao-pagina p {
+        font-size: 15px;
+    }
+
+    .lista-servicos li {
+        font-size: 16px;
+    }
+
     .servicos-container {
         flex-direction: column;
         gap: 10vmin;
@@ -847,35 +808,82 @@ body:has(.topo-site.ativo) .menu-topo-fixo {
     }
 
     .servicos-container2 {
-        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         gap: 10vmin;
+        width: 100%;
     }
 
-    .h3{
-        font-size: 10vmin;
+    .linha2 .interface {
+    padding: 40px 20px;
     }
-}
+    
+    .linha2 h2 {
+    padding-left: 0px;
+    padding-bottom: 40px;
+    padding-top: 10px;
+    margin-bottom: 0px;
+    } 
 
-@media (max-width: 768px) {
-    .logo-topo-fixo img {
-        height: 42vmin;
-    }
-}
-
-@media (max-width: 768px) {
+    /* Instagram mobile */
     .instagram-wrapper {
         flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
         gap: 30px;
+        width: 100%;
+        padding: 0;
+    }
+
+    /* h2 do insta-info igual ao fale conosco (.secao-pagina h2) */
+    .insta-info h2 {
+        font-size: 26px;
+    }
+
+    /* distância das bordas igual ao fale conosco */
+    .insta-info {
+        max-width: 100%;
+        width: 100%;
+        padding-left: 20px;
+        padding-right: 20px;
+        box-sizing: border-box;
     }
 
     .insta-user i {
         font-size: 50px;
     }
-}
 
-@media (max-width: 768px) {
+    .elfsight-wrapper {
+    width: calc(100% + 40px);
+    max-width: none;
+    margin-left: -20px;
+    margin-right: -20px;
+    padding: 0;
+    box-sizing: border-box;
+    }
 
-    /* Centraliza a seção inteira */
+    .elfsight-app-b81daa83-0011-4927-ab72-77f92a28db03 {
+    width: 100% !important;
+    max-width: 100% !important;
+    }
+
+    .elfsight-wrapper > div {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    .eapps-instagram-feed-container {
+        min-width: unset;
+        max-width: 100%;
+        width: 100%;
+        align-self: center;
+        margin: 0;
+        border-radius: 12px;
+    }
+
+    /* Contato mobile */
     #contato .interface {
         display: flex;
         flex-direction: column;
@@ -883,106 +891,66 @@ body:has(.topo-site.ativo) .menu-topo-fixo {
         text-align: center;
     }
 
-    /* Centraliza o container */
-    .servicos-container2 {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 30px;
-        width: 100%;
-    }
-
-    /* Formulário centralizado e com largura boa */
     .form-contato {
         width: 100%;
         max-width: 350px;
     }
 
-    /* Inputs ocupando toda largura */
     .form-contato input,
     .form-contato textarea {
         width: 100%;
     }
 
-    /* Lista de contatos centralizada */
     .noticias {
         text-align: center;
     }
-}
 
-@media (max-width:768px){
+    #sublinhado  { font-size: 5vmin; }
+    #sublinhado2 { font-size: 6vmin; }
 
-.secao-pagina{
-    padding-left:30px;
-    padding-right:30px;
-    padding-bottom: 70px;
-}
-
-}
-
-@media (max-width:768px){
-    body::before{
-        background-size:110vmin;
+    main::before {
+        background-size: 110vmin;
     }
-}
 
-@media (max-width:768px){
-
-.img-topo-site h2{
-    font-size: 26px;
-    padding-inline: 20px;
-}
-
-.img-topo-site h3{
-    font-size: 16px;
-    padding-inline: 20px;
-}
-
-.secao-pagina h2{
-    font-size: 26px;
-    padding-top: 6vw;
-}
-
-.secao-pagina p{
-    font-size: 15px;
-}
-
-.lista-servicos li{
-    font-size: 16px;
-}
-
-}
-
-@media (max-width:768px){
-    #sublinhado{
-        font-size: 5vmin;
-    }
-}
-
-@media (max-width:768px){
-    #sublinhado2{
-        font-size: 6vmin;
-    }
-}
-
-@media (max-width: 768px){
-    .linha2 .interface {
-        padding: 40px 30px; /* topo/baixo | lados */
-    }
-}
-
-@media (max-width:768px){
-    .swiper {
+    .topo-escondido {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    max-width: 80vmin;
-    height: 120vmin;
-    padding: 20px 0;
+    padding: 10px 40px;
+    transform: translateY(-100%);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 99999;
+    background: #921818;
+    transition: all 0.4s ease;
+    }
+
+    .linha2 .interface .elfsight-wrapper {
+    width: 100%;
+
+    }
+
+    .eapps-instagram-feed-container a{
+        display: flex;
+        align-items: center;
+    }
+
+    .secao-pagina{
+        padding-top: 20px;
+    }
+
+    .quem-somos-wrapper img {
+    display: none;
+    }
+
+    .linha2 .interface p {
+    font-size: 16px;
+    }
+
+    .quem-somos-wrapper img {
+    max-width: 20vmin;
+    width: 100%;
+    padding-right: 90px;
     }
 }
-
-@media (max-width: 768px){
-    .search-box {
-        display: none !important;
-    }
-}
-
