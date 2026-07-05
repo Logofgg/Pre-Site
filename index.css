@@ -264,16 +264,29 @@ h1 {
 
 /* TOPO FUNDO */
 .topo-fundo {
+    position: relative;
+    min-height: 100vh; 
+    display: flex;
+    align-items: center; 
+    overflow: hidden;
+    z-index: 1;
+}
+
+.topo-fundo::before {
+    content: "";
+    position: absolute;
+    inset: -10px;
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
                 url("images/cristo4.jpeg") no-repeat center center;
     background-size: cover;
     background-position: center 30%;
-    min-height: 100vh; 
-    display: flex;
-    align-items: center; 
-    position: relative;
-    z-index: 1;
+    filter: blur(3px);
+    transform: scale(1.03);
+    z-index: -1;
+}
 
+.topo-fundo .interface {
+    width: 100%;
 }
 
 .img-topo-site {
@@ -285,15 +298,7 @@ h1 {
     font-size: 45px;
     color: white;
     padding-inline: 95px;
-    text-align: left;
-}
-
-.img-topo-site h3 {
-    font-size: 25px;
-    color: #fcb143;
-    padding-inline: 95px;
-    text-align: left;
-    margin-top: 15px;
+    text-align: center;
 }
 
 /* BARRA DE BUSCA DO TOPO */
@@ -366,7 +371,8 @@ h1 {
     z-index: 2;
 }
 
-.linha2 .interface .elfsight-wrapper {
+.linha2 .interface .elfsight-wrapper,
+.instagram-wrapper .elfsight-wrapper {
     max-width: 100%;
     width: 42.5%;
 }
@@ -426,25 +432,23 @@ body:has(.topo-site.ativo) .menu-topo-fixo {
 }
 
 .interface-topo {
-    max-width: 1200px;
-    margin: 0 auto;
+    width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center; /* centraliza o conjunto */
     align-items: center;
-    gap: 30px;
+    gap: 40vmin;
+    margin: 0 auto;
+    padding-top: 6vmin;
 }
 
 .conteudo-direita {
     display: flex;
     align-items: center;
-    gap: 30px;
+    gap: 2vmin;
 }
 
 .logo-topo-fixo img {
-    height: 16vw;
-    width: auto;
-    display: block;
-    transition: transform 0.2s ease;
+    height: 14vw; /* diminui a logo */
 }
 
 .logo-topo-fixo img:hover {
@@ -541,19 +545,46 @@ body:has(.topo-site.ativo) .menu-topo-fixo {
 
 .servicos-container {
     display: flex;
-    gap: 30vw;
+    gap: 50px;
     align-items: flex-start;
+}
+
+.lista-servicos {
+    flex: 1 1 0;
+    min-width: 0;
 }
 
 .servicos-container2 {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 10vw;
+    gap: 50px;
 }
 
 .lista-servicos li {
     font-size: 20px;
     margin-bottom: 12px;
+}
+
+/* DIFERENCIAIS */
+.lista-diferenciais {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    max-width: 900px;
+}
+
+.lista-diferenciais li {
+    font-size: 20px;
+    line-height: 1.5;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+}
+
+.lista-diferenciais li i {
+    color: #fcb143;
+    margin-top: 4px;
 }
 
 /* SEÇÃO INSTAGRAM */
@@ -651,9 +682,13 @@ body:has(.topo-site.ativo) .menu-topo-fixo {
     flex: 1;
 } 
 
+.noticias li {
+    font-size: 2.2vmin;
+}
+
 /* RODAPÉ */
 .rodape {
-    background: #2a0e0e;
+    background: #7c0002;
     color: white;
     padding: 50px 40px 20px;
 }
@@ -706,17 +741,50 @@ body:has(.topo-site.ativo) .menu-topo-fixo {
     z-index: 0;
 }
 
-.quem-somos-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 40px;
+.quem-somos {
+    background: #2a0e0e;
 }
 
-.quem-somos-wrapper img {
-    max-width: 40vmin;
+.quem-somos-wrapper {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.quadro-secao {
+    background: rgba(0, 0, 0, 0.18);
+    border: 1px solid rgba(252, 177, 67, 0.35);
+    border-radius: 18px;
+    padding: 55px 70px;
+    max-width: 900px;
     width: 100%;
-    padding-right: 90px;
-    }
+    margin: 0 auto;
+}
+
+.quadro-secao--larga {
+    max-width: 100%;
+}
+
+.quem-somos-quadro {
+    flex: none;
+}
+
+.quem-somos-cabecalho {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 5vmin;
+}
+
+.quem-somos-cabecalho h2 {
+    margin-bottom: 0;
+}
+
+.quem-somos-cabecalho img.quem-somos-logo {
+    width: 12vmin;
+    max-width: 12vmin;
+    height: auto;
+    padding-right: 0;
+}
 
 .quem-somos-texto {
     flex: 1;
@@ -744,8 +812,16 @@ body:has(.topo-site.ativo) .menu-topo-fixo {
         display: none !important;
     }
 
+    .icone-busca {
+        display: none !important;
+    }
+
+    .interface-topo {
+    gap: 20vmin;
+    }
+
     .logo-topo-fixo img {
-        height: 42vmin;
+        height: 40vmin;
     }
 
     .menu-drop {
@@ -777,9 +853,8 @@ body:has(.topo-site.ativo) .menu-topo-fixo {
         padding-inline: 20px;
     }
 
-    .img-topo-site h3 {
-        font-size: 16px;
-        padding-inline: 20px;
+    .quadro-secao h2,.secao-pagina h2 {
+        text-align: center;
     }
 
     .secao-pagina {
@@ -799,12 +874,16 @@ body:has(.topo-site.ativo) .menu-topo-fixo {
 
     .lista-servicos li {
         font-size: 16px;
+        margin-left: 8vmin;
+    }
+
+    .lista-diferenciais li {
+        font-size: 16px;
     }
 
     .servicos-container {
         flex-direction: column;
         gap: 10vmin;
-        padding-left: 6vmin;
     }
 
     .servicos-container2 {
@@ -825,6 +904,33 @@ body:has(.topo-site.ativo) .menu-topo-fixo {
     padding-top: 10px;
     margin-bottom: 0px;
     } 
+
+    .quem-somos-wrapper {
+        flex-direction: column;
+    }
+
+    .quem-somos-quadro,
+    .quadro-secao {
+        padding: 25px 25px;
+    }
+
+    .quadro-secao h2 {
+    font-size: 7vmin;
+    }
+
+    .quem-somos-cabecalho {
+        margin-bottom: 30px;
+        padding-right: 0;
+    }
+
+    .linha2 .quem-somos-cabecalho h2{
+        padding-bottom: 3vmin;
+    }
+
+    .quem-somos-cabecalho img.quem-somos-logo {
+    width: 15vmin;
+    max-width: 15vmin;
+    }
 
     /* Instagram mobile */
     .instagram-wrapper {
@@ -926,7 +1032,8 @@ body:has(.topo-site.ativo) .menu-topo-fixo {
     transition: all 0.4s ease;
     }
 
-    .linha2 .interface .elfsight-wrapper {
+    .linha2 .interface .elfsight-wrapper,
+    .instagram-wrapper .elfsight-wrapper {
     width: 100%;
 
     }
@@ -940,17 +1047,13 @@ body:has(.topo-site.ativo) .menu-topo-fixo {
         padding-top: 20px;
     }
 
-    .quem-somos-wrapper img {
-    display: none;
-    }
-
     .linha2 .interface p {
-    font-size: 16px;
+        font-size: 16px;
     }
 
-    .quem-somos-wrapper img {
-    max-width: 20vmin;
-    width: 100%;
-    padding-right: 90px;
+    .noticias li {
+        padding: 0;
+        margin-left: 3vmin;
+        font-size: 4vmin;
     }
 }
