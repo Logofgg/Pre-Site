@@ -817,11 +817,16 @@ body:has(.topo-site.ativo) .menu-topo-fixo {
     }
 
     .interface-topo {
-    gap: 20vmin;
+    gap: 1vmin;
     }
 
     .logo-topo-fixo img {
-        height: 55vmin;
+        height: 60vmin;
+        padding-left: 10vmin;
+    }
+
+    .menu-icon-topo {
+        padding-bottom: 28vmin;
     }
 
     .menu-drop {
