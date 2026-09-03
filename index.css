@@ -822,7 +822,7 @@ body:has(.topo-site.ativo) .menu-topo-fixo {
 
     .logo-topo-fixo img {
         height: 60vmin;
-        padding-left: 10vmin;
+        padding-left: 9vmin;
     }
 
     .menu-icon-topo {
