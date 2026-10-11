@@ -436,7 +436,7 @@ body:has(.topo-site.ativo) .menu-topo-fixo {
     display: flex;
     justify-content: center; /* centraliza o conjunto */
     align-items: center;
-    gap: 40vmin;
+    gap: 20vw;
     margin: 0 auto;
     padding-top: 6vmin;
 }
@@ -448,7 +448,7 @@ body:has(.topo-site.ativo) .menu-topo-fixo {
 }
 
 .logo-topo-fixo img {
-    height: 14vw; /* diminui a logo */
+    height: 20vw; /* diminui a logo */
 }
 
 .logo-topo-fixo img:hover {
