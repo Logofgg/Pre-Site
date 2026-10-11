@@ -438,7 +438,7 @@ body:has(.topo-site.ativo) .menu-topo-fixo {
     align-items: center;
     gap: 20vw;
     margin: 0 auto;
-    padding-top: 1vw;
+    padding-top: 0.05vw;
 }
 
 .conteudo-direita {
